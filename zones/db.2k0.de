@@ -1,0 +1,12 @@
+2k0.de.                         3600 IN SOA   ns1.kserver.biz. dns.ahlers.me. 1 7200 900 1209600 86400
+2k0.de.                         3600 IN NS    ns1.kserver.biz.
+2k0.de.                         3600 IN NS    ns2.kserver.biz.
+2k0.de.                         3600 IN NS    ns3.kserver.biz.
+2k0.de.                         3600 IN MX    30 ASPMX5.GOOGLEMAIL.COM.
+2k0.de.                         3600 IN MX    30 ASPMX4.GOOGLEMAIL.COM.
+2k0.de.                         3600 IN MX    20 alt1.aspmx.l.google.com.
+2k0.de.                         3600 IN MX    30 ASPMX3.GOOGLEMAIL.COM.
+2k0.de.                         3600 IN MX    30 ASPMX2.GOOGLEMAIL.COM.
+2k0.de.                         3600 IN MX    10 aspmx.l.google.com.
+2k0.de.                         3600 IN MX    20 alt2.aspmx.l.google.com.
+googleffffffffffc3b235.2k0.de.  3600 IN CNAME google.com.
