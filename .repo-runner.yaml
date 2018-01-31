@@ -1,0 +1,6 @@
+---
+
+image: quay.io/luzifer/repo-runner-image
+
+commands:
+  - make
