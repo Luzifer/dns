@@ -1,0 +1,10 @@
+. {
+  alias
+
+  auto {
+    directory zones
+    upstream 8.8.8.8
+  }
+
+  log
+}
