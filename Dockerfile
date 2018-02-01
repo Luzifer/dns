@@ -14,7 +14,7 @@ COPY --from=0 /go/bin/coredns /usr/local/bin/
 ADD . /src
 WORKDIR /src
 
-EXPOSE 53/udp
+EXPOSE 53/udp 53
 
 ENTRYPOINT ["/usr/local/bin/coredns"]
 CMD ["--"]
