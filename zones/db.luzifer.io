@@ -31,7 +31,7 @@ latest.luzifer.io.                                           3600 IN CNAME lates
 login.luzifer.io.                                              60 IN CNAME login.hub.luzifer.io.
 luzifer.io.                                                  3600 IN TXT   "google-site-verification=YCAOwbf_Tzc9ueQllrjbU2lb5gng0myMf3OAcV0nMtI"
 luzifer.io.                                                  3600 IN TXT   "v=spf1 include:spf.mandrillapp.com include:_spf.google.com include:mailgun.org -all"
-luzifer.io.                                                  3600 IN CNAME luzifer_io.hub.luzifer.io.
+luzifer.io.                                                  3600 IN CNAME docker01.cloud.kserver.biz.
 lv.luzifer.io.                                               3600 IN CNAME latest.hub.luzifer.io.
 mailo._domainkey.luzifer.io.                                 3600 IN TXT   "k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDdQwCnp0S0EFg1UJP38MdcHxP/5i0mvAy0sIBN3U+wOmSy/wJkrbBDQG3l61D/DSgEca7h9aKaZ/SYFm1v0y0aUxya1215TtiS5K1T3FyEkGXo/MX2O0A+yPotQS1cr3fMuhSTmStRTbXydbSc+iQukmSl8b8VS8Gy5F2srjj5XQIDAQAB"
 mandrill._domainkey.luzifer.io.                              3600 IN TXT   "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCrLHiExVd55zd/IQ/J/mRwSRMAocV/hMB3jXwaHH36d9NaVynQFYV8NaWi69c1veUtRzGt7yAioXqLj7Z4TeEUoOLgrKsn8YnckGs9i3B3tVFB+Ch/4mPhXWiNfNdynHWBcPcbJ8kjEQ2U8y78dHZj1YeRXXVvWob2OaKynO8/lQIDAQAB;"
