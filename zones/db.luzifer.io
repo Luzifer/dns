@@ -2,6 +2,10 @@ luzifer.io.                                                  3600 IN SOA   ns1.k
 luzifer.io.                                                  3600 IN NS    ns1.kserver.biz.
 luzifer.io.                                                  3600 IN NS    ns2.kserver.biz.
 luzifer.io.                                                  3600 IN NS    ns3.kserver.biz.
+openvpn.luzifer.io.                                          3600 IN NS    ns-104.awsdns-13.com.
+openvpn.luzifer.io.                                          3600 IN NS    ns-1103.awsdns-09.org.
+openvpn.luzifer.io.                                          3600 IN NS    ns-1709.awsdns-21.co.uk.
+openvpn.luzifer.io.                                          3600 IN NS    ns-581.awsdns-08.net.
 luzifer.io.                                                  3600 IN MX    10 aspmx.l.google.com.
 luzifer.io.                                                  3600 IN MX    20 alt1.aspmx.l.google.com.
 luzifer.io.                                                  3600 IN MX    20 alt2.aspmx.l.google.com.
