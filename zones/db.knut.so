@@ -2,4 +2,5 @@ knut.so.  3600 IN SOA   ns1.kserver.biz. dns.ahlers.me. 1 7200 900 1209600 86400
 knut.so.  3600 IN NS    ns1.kserver.biz.
 knut.so.  3600 IN NS    ns2.kserver.biz.
 knut.so.  3600 IN NS    ns3.kserver.biz.
-knut.so.  3600 IN CNAME cname.bitly.com.
+knut.so.  3600 IN A     67.199.248.12
+knut.so.  3600 IN A     67.199.248.13

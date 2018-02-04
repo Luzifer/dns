@@ -2,4 +2,4 @@ holiday-api.fyi.  3600 IN SOA   ns1.kserver.biz. dns.ahlers.me. 1 7200 900 12096
 holiday-api.fyi.  3600 IN NS    ns1.kserver.biz.
 holiday-api.fyi.  3600 IN NS    ns2.kserver.biz.
 holiday-api.fyi.  3600 IN NS    ns3.kserver.biz.
-holiday-api.fyi.   600 IN CNAME holidays.hub.luzifer.io.
+holiday-api.fyi.   600 IN A     188.40.126.69

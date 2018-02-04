@@ -2,5 +2,5 @@ badges.fyi.      3600 IN SOA   ns1.kserver.biz. dns.ahlers.me. 1 7200 900 120960
 badges.fyi.      3600 IN NS    ns1.kserver.biz.
 badges.fyi.      3600 IN NS    ns2.kserver.biz.
 badges.fyi.      3600 IN NS    ns3.kserver.biz.
-badges.fyi.       600 IN CNAME docker01.autodns.kserver.biz.
+badges.fyi.       600 IN A     188.40.126.69
 dev.badges.fyi.   600 IN CNAME docker01.autodns.kserver.biz.

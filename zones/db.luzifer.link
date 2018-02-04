@@ -2,4 +2,4 @@ luzifer.link.  3600 IN SOA   ns1.kserver.biz. dns.ahlers.me. 1 7200 900 1209600 
 luzifer.link.  3600 IN NS    ns1.kserver.biz.
 luzifer.link.  3600 IN NS    ns2.kserver.biz.
 luzifer.link.  3600 IN NS    ns3.kserver.biz.
-luzifer.link.  3600 IN CNAME knutin.hub.luzifer.io.
+luzifer.link.  3600 IN A     188.40.126.69
