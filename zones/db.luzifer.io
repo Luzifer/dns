@@ -6,13 +6,11 @@ openvpn.luzifer.io.                                          3600 IN NS    ns-10
 openvpn.luzifer.io.                                          3600 IN NS    ns-1103.awsdns-09.org.
 openvpn.luzifer.io.                                          3600 IN NS    ns-1709.awsdns-21.co.uk.
 openvpn.luzifer.io.                                          3600 IN NS    ns-581.awsdns-08.net.
-luzifer.io.                                                  3600 IN MX    10 aspmx.l.google.com.
-luzifer.io.                                                  3600 IN MX    20 alt1.aspmx.l.google.com.
-luzifer.io.                                                  3600 IN MX    20 alt2.aspmx.l.google.com.
-luzifer.io.                                                  3600 IN MX    30 ASPMX2.GOOGLEMAIL.COM.
-luzifer.io.                                                  3600 IN MX    30 ASPMX3.GOOGLEMAIL.COM.
-luzifer.io.                                                  3600 IN MX    30 ASPMX4.GOOGLEMAIL.COM.
-luzifer.io.                                                  3600 IN MX    30 ASPMX5.GOOGLEMAIL.COM.
+luzifer.io.                                                  3600 IN MX    1 ASPMX.L.GOOGLE.COM.
+luzifer.io.                                                  3600 IN MX    10 ALT3.ASPMX.L.GOOGLE.COM.
+luzifer.io.                                                  3600 IN MX    10 ALT4.ASPMX.L.GOOGLE.COM.
+luzifer.io.                                                  3600 IN MX    5 ALT1.ASPMX.L.GOOGLE.COM.
+luzifer.io.                                                  3600 IN MX    5 ALT2.ASPMX.L.GOOGLE.COM.
 ses.luzifer.io.                                               600 IN MX    10 inbound-smtp.eu-west-1.amazonaws.com.
 *.hub.luzifer.io.                                            3600 IN CNAME docker01.cloud.kserver.biz.
 4j6vz7jbf3vama3f45pkmzjjliqgirqc._domainkey.ses.luzifer.io.   600 IN CNAME 4j6vz7jbf3vama3f45pkmzjjliqgirqc.dkim.amazonses.com.
