@@ -6,5 +6,6 @@
     upstream 8.8.8.8
   }
 
+  errors
   log
 }
