@@ -1,0 +1,346 @@
+---
+
+soa:
+  auth_ns: ns1.kserver.biz.
+  contact: dns.ahlers.me.
+  serial: 1
+  refresh: 7200
+  retry: 900
+  expire: 1209600
+  ttl: 86400
+
+nameserver:
+  - ns1.kserver.biz.
+  - ns2.kserver.biz.
+  - ns3.kserver.biz.
+
+zones:
+  2k0.de:
+    mailserver:
+      aspmx.l.google.com.: 1
+      alt1.aspmx.l.google.com.: 5
+      alt2.aspmx.l.google.com.: 5
+      alt3.aspmx.l.google.com.: 10
+      alt4.aspmx.l.google.com.: 10
+    entries:
+      - name: googleffffffffffc3b235
+        type: CNAME
+        records:
+          - google.com.
+
+  ahlers.me:
+    mailserver:
+      aspmx.l.google.com.: 1
+      alt1.aspmx.l.google.com.: 5
+      alt2.aspmx.l.google.com.: 5
+      alt3.aspmx.l.google.com.: 10
+      alt4.aspmx.l.google.com.: 10
+    entries:
+      - name: ""
+        ttl: 600
+        alias: docker01.cloud.kserver.biz
+      - name: email
+        type: CNAME
+        records:
+          - mailgun.org.
+      - name: google._domainkey
+        type: TXT
+        records:
+          - "v=DKIM1; k=rsa; t=y; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCUiZftSvAAKuCOtC3A5ciYTr2sCJMVu/cL9sE2tuFK2mNzypuWtW/2GUtq3xif1Lah38rTm8iN0m3JiSK1OV9E3B6i7esFwb/rWlLr8ZpqEY1h0TuSudMw20X0AqnywRWihk9cYWqqlg6Lp2JLbzfPm4docM/+TBFgmhEhr531jQIDAQAB"
+      - name: k1._domainkey
+        type: TXT
+        records:
+          - "k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDZeWPyiBeIhjzqz/YQm7uYXdqbNcuzKal9cfNsEVez8qAFehahY4wAULlDju8u7RfF1A0dhgLIrCVhd9Xiu4nyHgttOhXOJbP7R/mZQM4jXgJ/aO23WwlI5PJCmwUVVY77P+rm2PZfcCBHIKWTX43lnuqfO1CTokbgXCmso7QmfwIDAQAB"
+      - name: mandrill._domainkey
+        type: TXT
+        records:
+          - "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCrLHiExVd55zd/IQ/J/mRwSRMAocV/hMB3jXwaHH36d9NaVynQFYV8NaWi69c1veUtRzGt7yAioXqLj7Z4TeEUoOLgrKsn8YnckGs9i3B3tVFB+Ch/4mPhXWiNfNdynHWBcPcbJ8kjEQ2U8y78dHZj1YeRXXVvWob2OaKynO8/lQIDAQAB;"
+      - name: stuff
+        type: CNAME
+        records:
+          - knuttest.jimdo.com.
+      - name: www
+        type: CNAME
+        records:
+          - luzifer_io.hub.luzifer.io.
+
+  badges.fyi:
+    entries:
+      - name: ""
+        ttl: 600
+        alias: docker01.cloud.kserver.biz
+      - name: dev
+        ttl: 600
+        type: CNAME
+        records:
+          - docker01.cloud.kserver.biz.
+
+  gobuilder.me:
+    mailserver:
+      aspmx.l.google.com.: 1
+      alt1.aspmx.l.google.com.: 5
+      alt2.aspmx.l.google.com.: 5
+      alt3.aspmx.l.google.com.: 10
+      alt4.aspmx.l.google.com.: 10
+    entries:
+      - name: ""
+        ttl: 600
+        alias: docker01.cloud.kserver.biz
+      - name: ""
+        type: TXT
+        records:
+          - "google-site-verification=lM1RtyNPwMTGjVSJVKoNdUdbLqhhQwEdv5qRqsd_vxA"
+          - "v=spf1 include:spf.mandrillapp.com include:mailgun.org ?all"
+      - name: email
+        type: CNAME
+        records:
+          - mailgun.org.
+      - name: krs._domainkey
+        type: TXT
+        records:
+          - "k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC8uMf3rmtgkU0qcHgUbyMHwFNWAaumA4uo0G/VJDnozBCHatB9bHDgUZfMqqJzEZZIGlGB35yeryXMC+d2AMHlUwUgYeS4MZQx4v/zSj98+remwhF4RxDQrkSmPceSGZ0eU0S87PTFYtno32d+CPW5LQ39UjKqeLWUsXxvNannhwIDAQAB"
+      - name: mandrill._domainkey
+        type: TXT
+        records: 
+          - "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCrLHiExVd55zd/IQ/J/mRwSRMAocV/hMB3jXwaHH36d9NaVynQFYV8NaWi69c1veUtRzGt7yAioXqLj7Z4TeEUoOLgrKsn8YnckGs9i3B3tVFB+Ch/4mPhXWiNfNdynHWBcPcbJ8kjEQ2U8y78dHZj1YeRXXVvWob2OaKynO8/lQIDAQAB;"
+
+  holiday-api.fyi:
+    entries:
+      - name: ""
+        ttl: 600
+        alias: docker01.cloud.kserver.biz
+
+  kahlers.biz:
+    mailserver:
+      encke.uberspace.de.: 10
+    entries:
+      - name: ""
+        type: TXT
+        records:
+          - "google-site-verification=5b7YhL9wNQdAk8Rp_oJ7w1hLxtFvFHwoTXxYwFRC5S0"
+      - name: google81ff6671578c2507
+        type: CNAME
+        records:
+          - google.com.
+
+  kahlers.de:
+    mailserver:
+      encke.uberspace.de.: 10
+    entries:
+      - name: ""
+        type: TXT
+        records:
+          - "google-site-verification: URJxtDWBr9AeG1MDQ18PoyryKS4skXu9peObdIJrqYM"
+      - name: google80107f63578c2507
+        type: CNAME
+        records:
+          - google.com.
+
+  knut.cc:
+    entries:
+      - name: ""
+        alias: ddba39e146dcw.cloudfront.net.
+
+  knut.in:
+    entries:
+      - name: ""
+        alias: docker01.cloud.kserver.biz.
+
+  knut.so:
+    entries:
+      - name: ""
+        alias: cname.bitly.com.
+
+  knut.work:
+    entries: []
+
+  knutshome.de:
+    mailserver:
+      aspmx.l.google.com.: 1
+      alt1.aspmx.l.google.com.: 5
+      alt2.aspmx.l.google.com.: 5
+      alt3.aspmx.l.google.com.: 10
+      alt4.aspmx.l.google.com.: 10
+    entries:
+      - name: ""
+        type: TXT
+        records:
+          - "v=spf1 a include:_spf.google.com ~all"
+      - name: googlef15fb95f578c2507
+        type: CNAME
+        records:
+          - google.com.
+
+  luzifer.cc:
+    entries:
+      - name: ""
+        alias: luzifer.cc.s3-website-us-east-1.amazonaws.com.
+      - name: 2
+        type: CNAME
+        records:
+          - kstuff.cloud.kserver.biz.
+      - name: cdn
+        type: CNAME
+        records:
+          - cdn.luzifer.cc.s3.amazonaws.com.
+
+  luzifer.io:
+    mailserver:
+      aspmx.l.google.com.: 1
+      alt1.aspmx.l.google.com.: 5
+      alt2.aspmx.l.google.com.: 5
+      alt3.aspmx.l.google.com.: 10
+      alt4.aspmx.l.google.com.: 10
+    entries:
+      - name: ""
+        alias: docker01.cloud.kserver.biz.
+      - name: ""
+        type: TXT
+        records:
+          - "google-site-verification=YCAOwbf_Tzc9ueQllrjbU2lb5gng0myMf3OAcV0nMtI"
+          - "v=spf1 include:spf.mandrillapp.com include:_spf.google.com include:mailgun.org -all"
+      - name: '*.hub'
+        type: CNAME
+        records:
+          - docker01.cloud.kserver.biz.
+      - name: _amazonses.ses
+        ttl: 600
+        type: TXT
+        records:
+          - "EGFLDxdkQDfm4TEBGkFCcsSum+S6RDldJ24ix6TK3Ps="
+      - name: _keybase
+        type: TXT
+        records:
+          - "keybase-site-verification=fG1G7tbhgVeC7b7a2V_CJ1oq1Ylx-DCy-EQAt9Tynxc"
+      - name: 4j6vz7jbf3vama3f45pkmzjjliqgirqc._domainkey.ses
+        ttl: 600
+        type: CNAME
+        records:
+          - 4j6vz7jbf3vama3f45pkmzjjliqgirqc.dkim.amazonses.com.
+      - name: ark
+        ttl: 
+        type: A
+        records:
+          - 31.214.232.18
+      - name: assets
+        type: CNAME
+        records:
+          - assets.luzifer.io.s3-website-eu-west-1.amazonaws.com.
+      - name: badge
+        ttl: 600
+        type: CNAME
+        records:
+          - docker01.cloud.kserver.biz.
+      - name: email
+        type: CNAME
+        records:
+          - mailgun.org.
+      - name: g5phbb6dpvdqoyh4zajk2vsc6rmxljtv._domainkey.ses
+        ttl: 600
+        type: CNAME
+        records:
+          - g5phbb6dpvdqoyh4zajk2vsc6rmxljtv.dkim.amazonses.com.
+      - name: gh-private
+        type: CNAME
+        records:
+          - d35wqb997f1hjd.cloudfront.net.
+      - name: hackmd
+        ttl: 600
+        type: CNAME
+        records:
+          - docker01.cloud.kserver.biz.
+      - name: jenkins
+        type: CNAME
+        records:
+          - docker01.cloud.kserver.biz.
+      - name: kchtfptsjxl2nj4luhksupj4hazmcf3r._domainkey.ses
+        ttl: 600
+        type: CNAME
+        records:
+          - kchtfptsjxl2nj4luhksupj4hazmcf3r.dkim.amazonses.com.
+      - name: latest
+        type: CNAME
+        records:
+          - docker01.cloud.kserver.biz.
+      - name: login
+        ttl: 60
+        type: CNAME
+        records:
+          - docker01.cloud.kserver.biz.
+      - name: lv
+        type: CNAME
+        records:
+          - docker01.cloud.kserver.biz.
+      - name: mailo._domainkey
+        type: TXT
+        records:
+          - "k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDdQwCnp0S0EFg1UJP38MdcHxP/5i0mvAy0sIBN3U+wOmSy/wJkrbBDQG3l61D/DSgEca7h9aKaZ/SYFm1v0y0aUxya1215TtiS5K1T3FyEkGXo/MX2O0A+yPotQS1cr3fMuhSTmStRTbXydbSc+iQukmSl8b8VS8Gy5F2srjj5XQIDAQAB"
+      - name: mandrill._domainkey
+        type: TXT
+        records:
+          - "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCrLHiExVd55zd/IQ/J/mRwSRMAocV/hMB3jXwaHH36d9NaVynQFYV8NaWi69c1veUtRzGt7yAioXqLj7Z4TeEUoOLgrKsn8YnckGs9i3B3tVFB+Ch/4mPhXWiNfNdynHWBcPcbJ8kjEQ2U8y78dHZj1YeRXXVvWob2OaKynO8/lQIDAQAB;"
+      - name: openvpn
+        type: NS
+        records:
+          - ns-104.awsdns-13.com.
+          - ns-1103.awsdns-09.org.
+          - ns-1709.awsdns-21.co.uk.
+          - ns-581.awsdns-08.net.
+      - name: ots
+        type: CNAME
+        records: 
+          - docker01.cloud.kserver.biz.
+      - name: paste
+        ttl: 600
+        type: CNAME
+        records:
+          - d1nv3hwf1jweft.cloudfront.net.
+      - name: pwd
+        type: CNAME
+        records:
+          - docker01.cloud.kserver.biz.
+      - name: registry
+        type: CNAME
+        records:
+          - registry.do.kserver.biz.
+      - name: repo-runner
+        ttl: 600
+        type: CNAME
+        records:
+          - docker01.cloud.kserver.biz.
+      - name: ses
+        type: MX
+        records:
+          - 10 inbound-smtp.eu-west-1.amazonaws.com.
+      - name: share
+        ttl: 600
+        type: CNAME
+        records:
+          - ddba39e146dcw.cloudfront.net.
+      - name: stuff
+        ttl: 600
+        type: CNAME
+        records:
+          - knuttest.jimdo.com.
+      - name: twtxt
+        ttl: 60
+        type: CNAME
+        records:
+          - twtxt.luzifer.io.s3-website-eu-west-1.amazonaws.com.
+      - name: update
+        ttl: 600
+        type: CNAME
+        records:
+          - update.luzifer.io.s3-website-eu-west-1.amazonaws.com.
+      - name: vault
+        ttl: 60
+        type: A
+        records:
+          - 94.130.184.108
+
+  luzifer.link:
+    entries:
+      - name: ""
+        alias: docker01.cloud.kserver.biz.
+
+...
