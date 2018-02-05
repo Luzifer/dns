@@ -218,7 +218,6 @@ zones:
         records:
           - 4j6vz7jbf3vama3f45pkmzjjliqgirqc.dkim.amazonses.com.
       - name: ark
-        ttl: 
         type: A
         records:
           - 31.214.232.18

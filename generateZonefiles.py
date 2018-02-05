@@ -63,8 +63,6 @@ def resolve_alias(entry):
         raise Exception(
             "Alias {} was not resolvable: No answers!".format(entry['alias']))
 
-    answers.sort()
-
     for rdata in answers:
         new_entry = entry.copy()
         del new_entry['alias']
@@ -72,7 +70,7 @@ def resolve_alias(entry):
         new_entry['data'] = rdata.address
         result.append(new_entry)
 
-    return result
+    return sorted(result, key=lambda k: k['data'])
 
 
 def sanitize(entry):

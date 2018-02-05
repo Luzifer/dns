@@ -33,7 +33,7 @@ func generateZonefiles() {
 	ctx, cancel := context.WithTimeout(context.Background(), 59*time.Second)
 	defer cancel()
 
-	cmd := exec.CommandContext(ctx, "/usr/bin/python", "generateZonefiles.py")
+	cmd := exec.CommandContext(ctx, "/usr/bin/python3", "generateZonefiles.py")
 	cmd.Stdout = iw
 	cmd.Stderr = ew
 	cmd.Dir = "/src"
