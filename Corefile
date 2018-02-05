@@ -1,6 +1,6 @@
 . {
   auto {
-    directory zones
+    directory zones db\.(.*) {1} 10
     upstream 8.8.8.8
   }
 
