@@ -1,25 +1,17 @@
 #!/bin/bash
 set -euxo pipefail
 
-IFS=$'\n'
+# Download sourcecode
+mkdir -p /go/src/github.com/coredns
+git clone https://github.com/coredns/coredns.git /go/src/github.com/coredns/coredns
 
-GOPKGS=(
-  'github.com/coredns/coredns'
-  'github.com/Luzifer/alias'
-)
-
-for pkg in ${GOPKGS[@]}; do
-  go get -d -v "${pkg}"
-done
-
-PLUGINS=(
-  '/^file:file/ i alias:github.com/Luzifer/alias'
-)
-
+# Ensure version pinning
 cd /go/src/github.com/coredns/coredns
-for insert in ${PLUGINS[@]}; do
-  sed -i "${insert}" plugin.cfg
-done
+git reset --hard ${COREDNS_VERSION}
 
-go generate
+# Copy cron drop-in
+cp /src/cron_generate.go .
+
+# Get dependencies and build
+go get -d -v
 go install
