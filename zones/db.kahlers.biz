@@ -1,7 +1,0 @@
-kahlers.biz.                         3600 IN SOA   ns1.kserver.biz. dns.ahlers.me. 1 7200 900 1209600 86400
-kahlers.biz.                         3600 IN NS    ns1.kserver.biz.
-kahlers.biz.                         3600 IN NS    ns2.kserver.biz.
-kahlers.biz.                         3600 IN NS    ns3.kserver.biz.
-kahlers.biz.                         3600 IN MX    10 encke.uberspace.de.
-google81ff6671578c2507.kahlers.biz.  3600 IN CNAME google.com.
-kahlers.biz.                         3600 IN TXT   "google-site-verification=5b7YhL9wNQdAk8Rp_oJ7w1hLxtFvFHwoTXxYwFRC5S0"
