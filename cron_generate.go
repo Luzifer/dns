@@ -13,6 +13,8 @@ func init() {
 	c := cron.New()
 	c.AddFunc("0 * * * * *", generateZonefiles)
 	c.Start()
+
+	go generateZonefiles()
 }
 
 func generateZonefiles() {
