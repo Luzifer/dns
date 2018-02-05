@@ -24,5 +24,7 @@ WORKDIR /src
 
 EXPOSE 53/udp 53
 
+VOLUME ["/src/zones"]
+
 ENTRYPOINT ["/usr/local/bin/coredns"]
 CMD ["--"]

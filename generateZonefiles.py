@@ -6,6 +6,7 @@ import hashlib
 import os
 import os.path
 import sys
+import time
 
 # Third-party imports
 import dns.resolver
@@ -13,7 +14,6 @@ import dns.rdatatype
 import jinja2
 import yaml
 
-BLOCKSIZE = 65536
 DEFAULT_TTL = 3600
 
 
@@ -42,12 +42,19 @@ def hash_file(filename):
         return ""
 
     hasher = hashlib.sha1()
-    with open(filename, 'rb') as afile:
-        buf = afile.read(BLOCKSIZE)
-        while len(buf) > 0:
-            hasher.update(buf)
-            buf = afile.read(BLOCKSIZE)
+    with open(filename, 'r') as afile:
+        lines = afile.readlines()
+
+    lines = map(replace_soa_line, lines)
+
+    hasher.update(''.join(lines).encode('utf-8'))
     return hasher.hexdigest()
+
+
+def replace_soa_line(line):
+    if 'SOA' in line:
+        return '; SOA line replaced'
+    return line
 
 
 def resolve_alias(entry):
@@ -96,6 +103,8 @@ def sanitize(entry):
 
 
 def write_zone(zone, ttl, soa, nameserver, mailserver, entries):
+    soa['serial'] = int(time.time()) - 946681200  # 2000-01-01
+
     tpl = jinja2.Template(open("zone_template.j2").read())
     zone_content = tpl.render({
         "zone": zone,
