@@ -122,6 +122,8 @@ def write_zone(zone, ttl, soa, nameserver, mailserver, entries):
         print("Generated and replaced zone file for {}".format(zone))
         diff_files("zones/db.{}".format(zone), "zones/tmp.{}".format(zone))
         os.rename("zones/tmp.{}".format(zone), "zones/db.{}".format(zone))
+    else:
+        os.unlink("zones/tmp.{}".format(zone))
 
 
 def main():
