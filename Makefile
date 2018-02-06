@@ -11,4 +11,8 @@ check_zones: .venv
 	virtualenv --python=python3 .venv
 	./.venv/bin/pip3 install -r requirements.txt
 
+alpine-prereq:
+	apk --no-cache add make python3
+	pip3 install virtualenv
+
 .PHONY: check_zones container

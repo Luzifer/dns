@@ -3,5 +3,4 @@
 image: quay.io/luzifer/repo-runner-image
 
 commands:
-  - apk --no-cache add make py3-virtualenv
-  - make check_zones container
+  - make alpine-prereq check_zones container
