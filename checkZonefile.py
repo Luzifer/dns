@@ -55,7 +55,12 @@ def check_entry(zone_name, entry):
             warn('Zone "{}" - Entry "{}" - Unexpected key in entry found: {}'.format(
                 zone_name, entry['name'], k))
 
-    parsed_entries = generator.sanitize(entry)
+    try:
+        parsed_entries = generator.sanitize(entry)
+    except:
+        error('Zone "{}" - Entry "{}" - Alias is not resolvable'.format(
+              zone_name, entry['name']))
+        return
 
     if len(parsed_entries) == 0:
         warn('Zone "{}" - Entry "{}" - Resolved to 0 resource records!'.format(
