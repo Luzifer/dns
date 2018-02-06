@@ -114,7 +114,7 @@ def check_nameserver(nameservers):
 
 
 def check_zone(name, config):
-    expected_zone = ['mailserver', 'entries']
+    expected_zone = ['mailserver', 'entries', 'default_ttl']
 
     for k in config.keys():
         if k not in expected_zone:
