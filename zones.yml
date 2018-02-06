@@ -3,7 +3,6 @@
 soa:
   auth_ns: ns1.kserver.biz.
   contact: dns.ahlers.me.
-  serial: 1
   refresh: 7200
   retry: 900
   expire: 1209600
