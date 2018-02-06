@@ -16,7 +16,7 @@ COPY --from=0 /go/bin/coredns /usr/local/bin/
 
 ADD ./requirements.txt /src/requirements.txt
 RUN set -ex \
- && apk --no-cache add python3 \
+ && apk --no-cache add python3 bind-tools \
  && pip3 install -r /src/requirements.txt
 
 ADD . /src
@@ -25,6 +25,9 @@ WORKDIR /src
 EXPOSE 53/udp 53
 
 VOLUME ["/src/zones"]
+
+HEALTHCHECK --interval=30s --timeout=5s \
+  CMD dig +short @localhost health.server.test TXT || exit 1
 
 ENTRYPOINT ["/usr/local/bin/coredns"]
 CMD ["--"]

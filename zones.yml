@@ -354,4 +354,10 @@ zones:
       - name: ""
         alias: docker01.cloud.kserver.biz.
 
+  server.test:
+    entries:
+      - name: health
+        type: TXT
+        records:
+          - "OK"
 ...
