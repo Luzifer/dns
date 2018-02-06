@@ -39,6 +39,14 @@ zones:
       - name: ""
         ttl: 600
         alias: docker01.cloud.kserver.biz
+      - name: ""
+        type: TXT
+        records:
+          - "keybase-site-verification=ctGylibf7WuSJwVBmuJjYbqRMvBQ5Z-On-GvYIH6PRI"
+          - "v=spf1 include:spf.mandrillapp.com include:_spf.google.com include:mailgun.org -all"
+          - "google-site-verification=f42bs3G-0kCtXwHQZitx0qiydRBSwoFluRDXkvjOR80"
+          - "adn_verification=luzifer https"
+          - "detectify-verification=a77f9d40e702b0baf2430477feb08e10"
       - name: email
         type: CNAME
         records:
