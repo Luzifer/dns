@@ -72,6 +72,10 @@ zones:
         records:
           - luzifer_io.hub.luzifer.io.
 
+  ahlers.tk:
+    mailserver:
+      inbucket.hub.luzifer.io.: 1
+
   badges.fyi:
     entries:
       - name: ""

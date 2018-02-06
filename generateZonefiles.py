@@ -131,7 +131,7 @@ def main():
         ttl = default(config, "default_ttl", DEFAULT_TTL)
 
         entries = []
-        for entry in config['entries']:
+        for entry in default(config, 'entries', []):
             entries.extend(sanitize(entry))
 
         write_zone(zone, ttl, zone_data['soa'],
