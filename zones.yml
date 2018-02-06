@@ -137,6 +137,28 @@ zones:
         ttl: 600
         alias: docker01.cloud.kserver.biz
 
+  itpad.de:
+    mailserver:
+      aspmx.l.google.com.: 1
+      alt1.aspmx.l.google.com.: 5
+      alt2.aspmx.l.google.com.: 5
+      alt3.aspmx.l.google.com.: 10
+      alt4.aspmx.l.google.com.: 10
+    entries:
+      - name: ""
+        alias: docker01.cloud.kserver.biz
+      - name: ""
+        type: TXT
+        records:
+          - "google-site-verification=HPGbpMOprxYwWZIzDnzkvEwpRr8snoaO4PFuXWr7nXM"
+      - name: www
+        type: CNAME
+        records:
+          - docker01.cloud.kserver.biz
+
+  k9s.me:
+    entries: []
+
   kahlers.biz:
     mailserver:
       encke.uberspace.de.: 10
@@ -163,6 +185,26 @@ zones:
         records:
           - google.com.
 
+  knut-ahlers.de:
+    mailserver:
+      aspmx.l.google.com.: 1
+      alt1.aspmx.l.google.com.: 5
+      alt2.aspmx.l.google.com.: 5
+      alt3.aspmx.l.google.com.: 10
+      alt4.aspmx.l.google.com.: 10
+    entries:
+      - name: ""
+        alias: docker01.cloud.kserver.biz
+      - name: ""
+        type: TXT
+        records:
+          - "keybase-site-verification=HWrF-UwgcUU_j0AVLxSNY7asqyC6K91umCESsWQHPvg"
+          - "google-site-verification=XemMLxd3QqwAmfJYi1v_miF1bsKhQiDSTPm4R84Q5yY"
+      - name: www
+        type: CNAME
+        records:
+          - docker01.cloud.kserver.biz.
+
   knut.cc:
     entries:
       - name: ""
@@ -180,6 +222,15 @@ zones:
 
   knut.work:
     entries: []
+
+  knutahlers.de:
+    entries:
+      - name: ""
+        alias: docker01.cloud.kserver.biz
+      - name: www
+        type: CNAME
+        records:
+          - docker01.cloud.kserver.biz.
 
   knutshome.de:
     mailserver:
