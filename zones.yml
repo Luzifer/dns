@@ -87,6 +87,21 @@ zones:
         records:
           - docker01.cloud.kserver.biz.
 
+  cloudkeys.de:
+    mailserver:
+      aspmx.l.google.com.: 1
+      alt1.aspmx.l.google.com.: 5
+      alt2.aspmx.l.google.com.: 5
+      alt3.aspmx.l.google.com.: 10
+      alt4.aspmx.l.google.com.: 10
+    entries:
+      - name: ""
+        alias: docker01.cloud.kserver.biz
+      - name: www
+        type: CNAME
+        records:
+          - docker01.cloud.kserver.biz.
+
   gobuilder.me:
     mailserver:
       aspmx.l.google.com.: 1
