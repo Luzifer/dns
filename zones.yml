@@ -215,12 +215,54 @@ zones:
       - name: ""
         alias: docker01.cloud.kserver.biz.
 
+  knut.me:
+    mailserver:
+      aspmx.l.google.com.: 1
+      alt1.aspmx.l.google.com.: 5
+      alt2.aspmx.l.google.com.: 5
+      alt3.aspmx.l.google.com.: 10
+      alt4.aspmx.l.google.com.: 10
+    entries:
+      - name: 28d72ef8af97.blog
+        type: CNAME
+        records:
+          - cname.bitly.com.
+      - name: blog
+        alias: docker01.cloud.kserver.biz.
+      - name: blog
+        type: TXT
+        records:
+          - "keybase-site-verification=kQezjhieHIJrz7WEQJU1qJqGghgWDki4fOU33b2HfRE"
+      - name: cdn
+        type: CNAME
+        records:
+          - d1h18dxou97pb9.cloudfront.net.
+      - name: googleffffffffffc3b235
+        type: CNAME
+        records:
+          - google.com.
+      - name: k7nxmbsyyxqy
+        type: CNAME
+        records:
+          - gv-4biqxjktgogszaj4vvruyyhcvcmtilwaapsxl2id6bfdm5elw6da.domainverify.googlehosted.com.
+      - name: pwd
+        type: CNAME
+        records:
+          - docker01.cloud.kserver.biz.
+      - name: timesheet
+        type: CNAME
+        records:
+          - timesheet.knut.me.s3-website-us-east-1.amazonaws.com.
+
   knut.so:
     entries:
       - name: ""
         alias: cname.bitly.com.
 
   knut.work:
+    entries: []
+
+  knut.ws:
     entries: []
 
   knutahlers.de:
@@ -419,6 +461,15 @@ zones:
     entries:
       - name: ""
         alias: docker01.cloud.kserver.biz.
+
+  mondash.org:
+    entries:
+      - name: ""
+        alias: docker01.cloud.kserver.biz.
+      - name: www
+        type: CNAME
+        records:
+          - docker01.cloud.kserver.biz.
 
   server.test:
     entries:
