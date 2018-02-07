@@ -66,6 +66,11 @@ def check_entry(zone_name, entry):
         warn('Zone "{}" - Entry "{}" - Resolved to 0 resource records!'.format(
             zone_name, entry['name']))
 
+    for entry in parsed_entries:
+        if entry['type'] == 'CNAME' and entry['data'][-1] != '.':
+            warn('Zone "{}" - Entry "{}" - CNAME data has no ending dot, pointing to same domain.'.format(
+                zone_name, entry['name']))
+
     # TODO(kahlers): Add more checks:
     # - Type is valid
     # - Class is valid
