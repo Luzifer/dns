@@ -99,6 +99,8 @@ def sanitize(entry):
 
         result.append(new_entry)
 
+    result.sort(key=lambda k: k['data'])
+
     return result
 
 

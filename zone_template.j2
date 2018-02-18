@@ -9,7 +9,7 @@ $TTL {{ ttl }}
 {{ zone }}. {{ ttl }} IN NS {{ ns }}
 {% endfor %}
 {%- if mailserver | length > 0 %}
-{% for mailserver, weight in mailserver.items() -%}
+{% for mailserver, weight in mailserver | dictsort -%}
 {{ zone }}. {{ ttl }} IN MX {{ weight }} {{ mailserver }}
 {% endfor -%}
 {%- endif %}
