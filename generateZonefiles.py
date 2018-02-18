@@ -138,8 +138,12 @@ def main():
         for entry in default(config, 'entries', []):
             entries.extend(sanitize(entry))
 
+        mailserver = default(config, 'mailserver', {})
+        if 'mailserver_set' in config and config['mailserver_set'] in zone_data['mailserver_sets']:
+            mailserver = zone_data['mailserver_sets'][config['mailserver_set']]
+
         write_zone(zone, ttl, zone_data['soa'],
-                   zone_data['nameserver'], default(config, 'mailserver', {}), entries)
+                   zone_data['nameserver'], mailserver, entries)
 
 
 if __name__ == "__main__":

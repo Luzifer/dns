@@ -106,6 +106,18 @@ def check_soa(soa, nameservers):
         warn('SOA minimum ttl out of recommended bounds 300 - 86400')
 
 
+def check_mailserver_sets(mailserver_sets):
+    for name, set in mailserver_sets.items():
+        for mx, weight in set.items():
+            if not str(weight).isdigit():
+                error('Mailserver Set {} - entry {} has non-digit weight {}'.format(
+                    name, mx, weight))
+
+            if not re.match(MATCH_FQDN, mx):
+                warn('Mailserver Set {} - MX {} does not match fqdn regexp'.format(
+                    name, mx))
+
+
 def check_nameserver(nameservers):
     if len(nameservers) < 2:
         error('Number of nameservers below required 2 servers')
@@ -124,14 +136,17 @@ def check_nameserver(nameservers):
 
 
 def check_zone(name, config):
-    expected_zone = ['mailserver', 'entries', 'default_ttl']
+    expected_zone = ['mailserver', 'mailserver_set', 'entries', 'default_ttl']
 
     for k in config.keys():
         if k not in expected_zone:
             warn('Unexpected entry in zone {} found: {}'.format(name, k))
 
-    if 'mailserver' not in config and ('entries' not in config or len(config['entries']) == 0):
+    if 'mailserver' not in config and 'mailserver_set' not in config and ('entries' not in config or len(config['entries']) == 0):
         warn('Zone {} has no mailservers and no entries'.format(name))
+
+    if 'mailserver' in config and 'mailserver_set' in config:
+        error('Zone {} contains mailserver and mailserver_set'.format(name))
 
     if 'mailserver' in config:
         for mx, weight in config['mailserver'].items():

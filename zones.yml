@@ -8,6 +8,14 @@ soa:
   expire: 1209600
   ttl: 86400
 
+mailserver_sets:
+  google:
+    aspmx.l.google.com.: 1
+    alt1.aspmx.l.google.com.: 5
+    alt2.aspmx.l.google.com.: 5
+    alt3.aspmx.l.google.com.: 10
+    alt4.aspmx.l.google.com.: 10
+
 nameserver:
   - ns1.kserver.biz.
   - ns2.kserver.biz.
@@ -15,12 +23,7 @@ nameserver:
 
 zones:
   2k0.de:
-    mailserver:
-      aspmx.l.google.com.: 1
-      alt1.aspmx.l.google.com.: 5
-      alt2.aspmx.l.google.com.: 5
-      alt3.aspmx.l.google.com.: 10
-      alt4.aspmx.l.google.com.: 10
+    mailserver_set: google
     entries:
       - name: googleffffffffffc3b235
         type: CNAME
@@ -28,12 +31,7 @@ zones:
           - google.com.
 
   ahlers.me:
-    mailserver:
-      aspmx.l.google.com.: 1
-      alt1.aspmx.l.google.com.: 5
-      alt2.aspmx.l.google.com.: 5
-      alt3.aspmx.l.google.com.: 10
-      alt4.aspmx.l.google.com.: 10
+    mailserver_set: google
     entries:
       - name: ""
         ttl: 600
@@ -87,12 +85,7 @@ zones:
           - docker01.cloud.kserver.biz.
 
   cloudkeys.de:
-    mailserver:
-      aspmx.l.google.com.: 1
-      alt1.aspmx.l.google.com.: 5
-      alt2.aspmx.l.google.com.: 5
-      alt3.aspmx.l.google.com.: 10
-      alt4.aspmx.l.google.com.: 10
+    mailserver_set: google
     entries:
       - name: ""
         alias: docker01.cloud.kserver.biz
@@ -102,12 +95,7 @@ zones:
           - docker01.cloud.kserver.biz.
 
   gobuilder.me:
-    mailserver:
-      aspmx.l.google.com.: 1
-      alt1.aspmx.l.google.com.: 5
-      alt2.aspmx.l.google.com.: 5
-      alt3.aspmx.l.google.com.: 10
-      alt4.aspmx.l.google.com.: 10
+    mailserver_set: google
     entries:
       - name: ""
         ttl: 600
@@ -137,12 +125,7 @@ zones:
         alias: docker01.cloud.kserver.biz
 
   itpad.de:
-    mailserver:
-      aspmx.l.google.com.: 1
-      alt1.aspmx.l.google.com.: 5
-      alt2.aspmx.l.google.com.: 5
-      alt3.aspmx.l.google.com.: 10
-      alt4.aspmx.l.google.com.: 10
+    mailserver_set: google
     entries:
       - name: ""
         alias: docker01.cloud.kserver.biz
@@ -185,12 +168,7 @@ zones:
           - google.com.
 
   knut-ahlers.de:
-    mailserver:
-      aspmx.l.google.com.: 1
-      alt1.aspmx.l.google.com.: 5
-      alt2.aspmx.l.google.com.: 5
-      alt3.aspmx.l.google.com.: 10
-      alt4.aspmx.l.google.com.: 10
+    mailserver_set: google
     entries:
       - name: ""
         alias: docker01.cloud.kserver.biz
@@ -215,12 +193,7 @@ zones:
         alias: docker01.cloud.kserver.biz.
 
   knut.me:
-    mailserver:
-      aspmx.l.google.com.: 1
-      alt1.aspmx.l.google.com.: 5
-      alt2.aspmx.l.google.com.: 5
-      alt3.aspmx.l.google.com.: 10
-      alt4.aspmx.l.google.com.: 10
+    mailserver_set: google
     entries:
       - name: 28d72ef8af97.blog
         type: CNAME
@@ -274,12 +247,7 @@ zones:
           - docker01.cloud.kserver.biz.
 
   knutshome.de:
-    mailserver:
-      aspmx.l.google.com.: 1
-      alt1.aspmx.l.google.com.: 5
-      alt2.aspmx.l.google.com.: 5
-      alt3.aspmx.l.google.com.: 10
-      alt4.aspmx.l.google.com.: 10
+    mailserver_set: google
     entries:
       - name: ""
         type: TXT
@@ -304,12 +272,7 @@ zones:
           - cdn.luzifer.cc.s3.amazonaws.com.
 
   luzifer.io:
-    mailserver:
-      aspmx.l.google.com.: 1
-      alt1.aspmx.l.google.com.: 5
-      alt2.aspmx.l.google.com.: 5
-      alt3.aspmx.l.google.com.: 10
-      alt4.aspmx.l.google.com.: 10
+    mailserver_set: google
     entries:
       - name: ""
         alias: docker01.cloud.kserver.biz.
