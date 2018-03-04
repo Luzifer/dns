@@ -1,0 +1,5 @@
+#!/bin/bash
+set -euxo pipefail
+
+cd /src
+exec /usr/bin/python3 generateZonefiles.py

@@ -1,28 +1,33 @@
 #!/bin/bash
 set -euxo pipefail
 
-# Download sourcecode
-mkdir -p /go/src/github.com/coredns
-git clone https://github.com/coredns/coredns.git /go/src/github.com/coredns/coredns
+# Install build utilities
+apk --no-cache add curl
 
-# Ensure version pinning
-cd /go/src/github.com/coredns/coredns
-git reset --hard ${COREDNS_VERSION}
+# Install dependencies
+apk --no-cache add python3 bind-tools
 
-# Copy cron drop-in
-cp /src/cron_generate.go .
+# Get latest versions of tools using latestver
+COREDNS_VERSION=$(curl -sSfL 'https://lv.luzifer.io/catalog-api/coredns/latest.txt?p=version')
+DUMB_INIT_VERSION=$(curl -sSfL 'https://lv.luzifer.io/catalog-api/dumb-init/latest.txt?p=version')
 
-# Get dependencies and build
-go get -d -v
+[ -z "${COREDNS_VERSION}" ] && { exit 1; }
+[ -z "${DUMB_INIT_VERSION}" ] && { exit 1; }
 
-# Force downgrades not being pinned
-CWD=$(pwd)
-cd ${GOPATH}/src/github.com/mholt/caddy              && git checkout -q v0.10.10
-cd ${GOPATH}/src/github.com/miekg/dns                && git checkout -q v1.0.4
-cd ${GOPATH}/src/github.com/prometheus/client_golang && git checkout -q v0.8.0
-cd ${GOPATH}/src/golang.org/x/net                    && git checkout -q release-branch.go1.9
-cd ${GOPATH}/src/golang.org/x/text                   && git checkout -q e19ae1496984b1c655b8044a65c0300a3c878dd3
-cd "${CWD}"
+# Install tools
+curl -sSfL https://github.com/coredns/coredns/releases/download/v${COREDNS_VERSION}/coredns_${COREDNS_VERSION}_linux_amd64.tgz | \
+  tar -x -z -C /usr/local/bin
 
-# Do the compile
-go install
+curl -sSfLo /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v${DUMB_INIT_VERSION}/dumb-init_${DUMB_INIT_VERSION}_amd64
+chmod +x /usr/local/bin/dumb-init
+
+# Install requirements for python3 scripts
+pip3 install -r /src/requirements.txt
+
+# Create cron to update zones periodically
+echo "*       *       *       *       *       run-parts /etc/periodic/1min" >> /var/spool/cron/crontabs/root
+mkdir -p /etc/periodic/1min
+ln -s /src/zonefile_cron /etc/periodic/1min/zonefile_cron
+
+# Cleanup
+apk --no-cache del curl
