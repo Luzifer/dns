@@ -383,7 +383,7 @@ zones:
       - name: registry
         type: CNAME
         records:
-          - registry.do.kserver.biz.
+          - registry.cloud.kserver.biz.
       - name: repo-runner
         ttl: 600
         type: CNAME
