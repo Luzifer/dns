@@ -1,6 +1,6 @@
 ---
 
-image: quay.io/luzifer/repo-runner-image
+image: reporunner/golang-alpine
 
 commands:
   - make alpine-prereq check_zones container
