@@ -407,9 +407,14 @@ zones:
   luzifer.rip:
     entries:
       - name: ""
+        type: A
+        records:
+          - 151.101.1.195
+          - 151.101.65.195
+      - name: ""
         type: TXT
         records:
-          - google-site-verification=KtEBY5ch2sbz-DIaIYkvZgb8C1IO1DiAzu2hnHs8xOw
+          - google-site-verification=KtEBY5ch2sbz-DIaIYkvZgb8C1IO1DiAzu2hnHs8xOw  # Firebase
 
   mondash.org:
     entries:
