@@ -383,6 +383,11 @@ zones:
         type: CNAME
         records:
           - knuttest.jimdo.com.
+      - name: ts
+        ttl: 60
+        type: CNAME
+        records:
+          - docker01.cloud.kserver.biz.
       - name: twtxt
         ttl: 60
         type: CNAME
