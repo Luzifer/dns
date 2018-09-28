@@ -105,18 +105,7 @@ zones:
         alias: docker01.cloud.kserver.biz
 
   itpad.de:
-    mailserver_set: google
-    entries:
-      - name: ""
-        alias: docker01.cloud.kserver.biz
-      - name: ""
-        type: TXT
-        records:
-          - "google-site-verification=HPGbpMOprxYwWZIzDnzkvEwpRr8snoaO4PFuXWr7nXM"
-      - name: www
-        type: CNAME
-        records:
-          - docker01.cloud.kserver.biz.
+    entries: []
 
   k9s.me:
     entries: []
