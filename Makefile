@@ -2,7 +2,7 @@ default: container
 
 container:
 	docker build --no-cache --pull -t luzifer/dns .
-	docker push luzifer/dns
+	bash -eo pipefail -c '[ "$(REF)" == "refs/heads/master" ] && docker push luzifer/dns || true'
 
 check_zones: .venv
 	./.venv/bin/python3 checkZonefile.py
