@@ -419,6 +419,11 @@ zones:
         records:
           - docker01.cloud.kserver.biz.
 
+  ots.fyi:
+    entries:
+      - name: ""
+        alias: docker01.cloud.kserver.biz.
+
   server.test:
     entries:
       - name: health
