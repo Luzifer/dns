@@ -104,9 +104,6 @@ zones:
         ttl: 600
         alias: docker01.cloud.kserver.biz
 
-  itpad.de:
-    entries: []
-
   k9s.me:
     entries: []
 
