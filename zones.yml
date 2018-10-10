@@ -192,6 +192,9 @@ zones:
         records:
           - timesheet.knut.me.s3-website-us-east-1.amazonaws.com.
 
+  knut.page:
+    entries: []
+
   knut.so:
     entries:
       - name: ""
