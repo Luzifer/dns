@@ -349,10 +349,6 @@ zones:
         type: CNAME
         records:
           - docker01.cloud.kserver.biz.
-      - name: registry
-        type: CNAME
-        records:
-          - registry.cloud.kserver.biz.
       - name: repo-runner
         ttl: 600
         type: CNAME
