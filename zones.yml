@@ -354,6 +354,11 @@ zones:
         type: CNAME
         records:
           - docker01.cloud.kserver.biz.
+      - name: rss-status
+        ttl: 600
+        type: CNAME
+        records:
+          - docker01.cloud.kserver.biz.
       - name: ses
         type: MX
         records:
