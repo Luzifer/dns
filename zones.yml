@@ -73,6 +73,12 @@ zones:
         records:
           - luzifer_io.hub.luzifer.io.
 
+  ahlers.space:
+    entries:
+      - name: ""
+        ttl: 600
+        alias: docker01.cloud.kserver.biz
+
   ahlers.tk:
     mailserver:
       inbucket.hub.luzifer.io.: 1
