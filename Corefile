@@ -1,6 +1,7 @@
 . {
   auto {
     directory zones db\.(.*) {1} 10
+    reload 10
     upstream 8.8.8.8
   }
 
