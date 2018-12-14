@@ -8,6 +8,9 @@ import os.path
 import sys
 import time
 
+# Custom modules
+import consul
+
 # Third-party imports
 import dns.resolver
 import dns.rdatatype
@@ -137,6 +140,10 @@ def main():
         entries = []
         for entry in default(config, 'entries', []):
             entries.extend(sanitize(entry))
+
+        if default(config, 'from_consul', False):
+            for entry in consul.query_zone_entries(zone):
+                entries.extend(sanitize(entry))
 
         mailserver = default(config, 'mailserver', {})
         if 'mailserver_set' in config and config['mailserver_set'] in zone_data['mailserver_sets']:

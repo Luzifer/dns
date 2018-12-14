@@ -136,17 +136,24 @@ def check_nameserver(nameservers):
 
 
 def check_zone(name, config):
-    expected_zone = ['mailserver', 'mailserver_set', 'entries', 'default_ttl']
+    expected_zone = ['mailserver', 'mailserver_set',
+                     'entries', 'default_ttl', 'from_consul']
 
     for k in config.keys():
         if k not in expected_zone:
             warn('Unexpected entry in zone {} found: {}'.format(name, k))
 
-    if 'mailserver' not in config and 'mailserver_set' not in config and ('entries' not in config or len(config['entries']) == 0):
+    if 'mailserver' not in config and 'mailserver_set' not in config and ('entries' not in config or len(config['entries']) == 0) and 'from_consul' not in config:
         warn('Zone {} has no mailservers and no entries'.format(name))
 
     if 'mailserver' in config and 'mailserver_set' in config:
         error('Zone {} contains mailserver and mailserver_set'.format(name))
+
+    if 'from_consul' in config and config['from_consul'] and 'entries' in config:
+        error('Zone {} contains entries and from_consul flag'.format(name))
+
+    if 'from_consul' in config and config['from_consul'] and 'mailserver' in config:
+        warn('Zone {} contains mailserver and from_consul flag'.format(name))
 
     if 'mailserver' in config:
         for mx, weight in config['mailserver'].items():
