@@ -160,9 +160,7 @@ zones:
         alias: ddba39e146dcw.cloudfront.net.
 
   knut.in:
-    entries:
-      - name: ""
-        alias: docker01.cloud.kserver.biz.
+    from_consul: true
 
   knut.me:
     mailserver_set: google
