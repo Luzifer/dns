@@ -69,44 +69,22 @@ zones:
           - luzifer_io.hub.luzifer.io.
 
   ahlers.space:
-    entries:
-      - name: ""
-        ttl: 600
-        alias: docker01.cloud.kserver.biz
+    from_consul: true
 
   ahlers.tk:
-    mailserver:
-      inbucket.hub.luzifer.io.: 1
+    from_consul: true
 
   badges.fyi:
-    entries:
-      - name: ""
-        ttl: 600
-        alias: docker01.cloud.kserver.biz
-      - name: dev
-        ttl: 600
-        type: CNAME
-        records:
-          - docker01.cloud.kserver.biz.
+    from_consul: true
 
   cloudkeys.de:
-    mailserver_set: google
-    entries:
-      - name: ""
-        alias: docker01.cloud.kserver.biz
-      - name: www
-        type: CNAME
-        records:
-          - docker01.cloud.kserver.biz.
+    from_consul: true
 
   holiday-api.fyi:
-    entries:
-      - name: ""
-        ttl: 600
-        alias: docker01.cloud.kserver.biz
+    from_consul: true
 
   k9s.me:
-    entries: []
+    from_consul: true
 
   kahlers.biz:
     mailserver:
@@ -135,24 +113,10 @@ zones:
           - google.com.
 
   knut-ahlers.de:
-    mailserver_set: google
-    entries:
-      - name: ""
-        alias: docker01.cloud.kserver.biz
-      - name: ""
-        type: TXT
-        records:
-          - "keybase-site-verification=HWrF-UwgcUU_j0AVLxSNY7asqyC6K91umCESsWQHPvg"
-          - "google-site-verification=XemMLxd3QqwAmfJYi1v_miF1bsKhQiDSTPm4R84Q5yY"
-      - name: www
-        type: CNAME
-        records:
-          - docker01.cloud.kserver.biz.
+    from_consul: true
 
   knut.cc:
-    entries:
-      - name: ""
-        alias: ddba39e146dcw.cloudfront.net.
+    from_consul: true
 
   knut.in:
     from_consul: true
@@ -192,7 +156,7 @@ zones:
           - timesheet.knut.me.s3-website-us-east-1.amazonaws.com.
 
   knut.page:
-    entries: []
+    from_consul: true
 
   knut.so:
     entries:
@@ -200,10 +164,10 @@ zones:
         alias: cname.bitly.com.
 
   knut.work:
-    entries: []
+    from_consul: true
 
   knut.ws:
-    entries: []
+    from_consul: true
 
   knutahlers.de:
     entries:
@@ -394,9 +358,7 @@ zones:
           - 94.130.184.108
 
   luzifer.link:
-    entries:
-      - name: ""
-        alias: docker01.cloud.kserver.biz.
+    from_consul: true
 
   luzifer.rip:
     entries:
@@ -420,9 +382,7 @@ zones:
           - docker01.cloud.kserver.biz.
 
   ots.fyi:
-    entries:
-      - name: ""
-        alias: docker01.cloud.kserver.biz.
+    from_consul: true
 
   server.test:
     entries:
