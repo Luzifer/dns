@@ -23,12 +23,7 @@ nameserver:
 
 zones:
   2k0.de:
-    mailserver_set: google
-    entries:
-      - name: googleffffffffffc3b235
-        type: CNAME
-        records:
-          - google.com.
+    from_consul: true
 
   ahlers.me:
     mailserver_set: google
