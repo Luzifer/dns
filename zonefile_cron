@@ -2,4 +2,6 @@
 set -euxo pipefail
 
 cd /src
-exec /usr/bin/python3 generateZonefiles.py
+/usr/bin/python3 generateZonefiles.py
+
+[ -n "${HC_PING}" ] && curl -sSfLo /dev/null "${HC_PING}"
