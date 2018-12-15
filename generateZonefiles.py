@@ -15,6 +15,7 @@ import consul
 import dns.resolver
 import dns.rdatatype
 import jinja2
+import requests
 import yaml
 
 DEFAULT_TTL = 3600
@@ -131,6 +132,11 @@ def write_zone(zone, ttl, soa, nameserver, mailserver, entries):
         os.unlink("zones/tmp.{}".format(zone))
 
 
+def healthcheck():
+    if os.getenv('HC_PING') != '':
+        requests.get(os.getenv('HC_PING'))
+
+
 def main():
     zone_data = yaml.load(open("zones.yml"))
 
@@ -154,6 +160,8 @@ def main():
 
         write_zone(zone, ttl, zone_data['soa'],
                    zone_data['nameserver'], mailserver, entries)
+
+    healthcheck()
 
 
 if __name__ == "__main__":
