@@ -134,6 +134,9 @@ def write_zone(zone, ttl, soa, nameserver, mailserver, entries):
 def main():
     zone_data = yaml.load(open("zones.yml"))
 
+    consul_zones = consul.get_zones()
+    zone_data['zones'] = {**consul_zones, **zone_data['zones']}
+
     for zone, config in zone_data['zones'].items():
         ttl = default(config, "default_ttl", DEFAULT_TTL)
 
