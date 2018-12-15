@@ -13,13 +13,15 @@ def query_zone_entries(zone):
 
 
 def read_raw_from_consul(zone):
-    resp = requests.get('{}/v1/kv/dns/{}?recurse=true'.format(
-        os.getenv('CONSUL_HTTP_ADDR'),
-        zone.rstrip('.'),
-    ),
+    resp = requests.get(
+        '{}/v1/kv/dns/{}?recurse=true'.format(
+            os.getenv('CONSUL_HTTP_ADDR'),
+            zone.rstrip('.'),
+        ),
         headers={
-        'X-Consul-Token': os.getenv('CONSUL_HTTP_TOKEN'),
-    })
+            'X-Consul-Token': os.getenv('CONSUL_HTTP_TOKEN'),
+        }
+    )
 
     if resp.status_code == 404:
         return []
