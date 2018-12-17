@@ -64,8 +64,8 @@ def parse_raw_consul(zone):
         # Key consists of at least 2 elements: dns/ahlers.me/subdomain OR dns/ahlers.me
         key = raw_entry['Key'].split('/')[2:]
         name = ''
-        if len(key) > 0 and key[0] != '@':
-            name = key[0]
+        if key not in [[], ['@']]:
+            name = '.'.join(reversed(key))
 
         for entry in sub_entries:
             entry['name'] = name
