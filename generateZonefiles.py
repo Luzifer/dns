@@ -133,7 +133,7 @@ def write_zone(zone, ttl, soa, nameserver, mailserver, entries):
 
 
 def healthcheck():
-    if os.getenv('HC_PING') != '':
+    if os.getenv('HC_PING') is not None:
         requests.get(os.getenv('HC_PING'))
 
 
