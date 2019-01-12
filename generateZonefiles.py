@@ -5,6 +5,7 @@ import difflib
 import hashlib
 import os
 import os.path
+import subprocess
 import sys
 import time
 
@@ -19,6 +20,18 @@ import requests
 import yaml
 
 DEFAULT_TTL = 3600
+
+rndc_queue = []
+
+
+def call_rndc(params):
+    command = ["rndc"]
+    command.extend(params)
+
+    if 'DEBUG' in os.environ and os.environ['DEBUG'] == 'true':
+        print('DBG: Call "{}"'.format(" ".join(command)))
+    else:
+        subprocess.check_call(command, stdout=sys.stdout, stderr=sys.stderr)
 
 
 def default(d, key, default=None):
@@ -41,6 +54,15 @@ def diff_files(file1, file2):
         fromlines, tolines, file1, file2)))
 
 
+def exec_rndc_queue():
+    global rndc_queue
+
+    for params in rndc_queue:
+        call_rndc(params)
+
+    rndc_queue = []
+
+
 def hash_file(filename):
     if not os.path.isfile(filename):
         return ""
@@ -53,6 +75,12 @@ def hash_file(filename):
 
     hasher.update(''.join(lines).encode('utf-8'))
     return hasher.hexdigest()
+
+
+def queue_rndc_call(params):
+    global rndc_queue
+
+    rndc_queue.append(params)
 
 
 def replace_soa_line(line):
@@ -108,6 +136,25 @@ def sanitize(entry):
     return result
 
 
+def write_named_conf(zones):
+    tpl = jinja2.Template(open("named.conf").read())
+    zone_content = tpl.render({
+        "zones": zones,
+    })
+
+    with open("zones/named.conf.new", "w") as f:
+        f.write(zone_content)
+
+    if hash_file("zones/named.conf.new") != hash_file("zones/named.conf"):
+        print("Generated and replaced named.conf")
+        diff_files("zones/named.conf", "zones/named.conf.new")
+        os.rename("zones/named.conf.new", "zones/named.conf")
+
+        queue_rndc_call(['reconfig'])
+    else:
+        os.unlink("zones/named.conf.new")
+
+
 def write_zone(zone, ttl, soa, nameserver, mailserver, entries):
     soa['serial'] = int(time.time()) - 946681200  # 2000-01-01
 
@@ -128,6 +175,8 @@ def write_zone(zone, ttl, soa, nameserver, mailserver, entries):
         print("Generated and replaced zone file for {}".format(zone))
         diff_files("zones/db.{}".format(zone), "zones/tmp.{}".format(zone))
         os.rename("zones/tmp.{}".format(zone), "zones/db.{}".format(zone))
+
+        queue_rndc_call(['reload', zone])
     else:
         os.unlink("zones/tmp.{}".format(zone))
 
@@ -142,6 +191,8 @@ def main():
 
     consul_zones = consul.get_zones()
     zone_data['zones'] = {**consul_zones, **zone_data['zones']}
+
+    write_named_conf(zone_data['zones'].keys())
 
     for zone, config in zone_data['zones'].items():
         ttl = default(config, "default_ttl", DEFAULT_TTL)
@@ -160,6 +211,8 @@ def main():
 
         write_zone(zone, ttl, zone_data['soa'],
                    zone_data['nameserver'], mailserver, entries)
+
+    exec_rndc_queue()
 
     healthcheck()
 

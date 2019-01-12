@@ -1,0 +1,4 @@
+zones/db.*
+zones/named.conf
+*.pyc
+.venv

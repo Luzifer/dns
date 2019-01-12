@@ -1,12 +1,20 @@
 #!/usr/local/bin/dumb-init /bin/bash
 set -euxo pipefail
 
-if [ "${1:-}" = 'coredns' ]; then
-  # Start crond in the background
-  crond
+# Ensure default config without zones
+[ -e /src/zones/named.conf ] || {
+	cp /src/named.conf.default /src/zones/named.conf
+}
 
-  # Start coredns
-  exec "$@"
+if [ "${1:-}" = 'named' ]; then
+	# Generate rndc communication key
+	rndc-confgen -a
+
+	# Start crond in the background
+	crond
+
+	# Start coredns
+	exec "$@"
 fi
 
 exec "$@"
