@@ -30,5 +30,4 @@ options {
 
         allow-recursion { none; };
         recursion no;
-        querylog yes;
 };
