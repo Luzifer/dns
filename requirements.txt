@@ -1,4 +1,3 @@
 jinja2
 PyYAML
-dnspython
 requests

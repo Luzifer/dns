@@ -1,2 +1,3 @@
-zones/*
+.env
 *.pyc
+zones/*

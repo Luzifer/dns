@@ -16,8 +16,5 @@ EXPOSE 53/udp 53
 
 VOLUME ["/src/zones"]
 
-HEALTHCHECK --interval=30s --timeout=5s \
-  CMD dig +short @localhost health.server.test TXT || exit 1
-
 ENTRYPOINT ["/src/docker-entrypoint.sh"]
 CMD ["named", "-g"]
