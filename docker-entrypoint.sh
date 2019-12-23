@@ -9,6 +9,7 @@ set -euxo pipefail
 if [ "${1:-}" = 'named' ]; then
 	# Generate rndc communication key
 	rndc-confgen -a
+	chmod 0644 /etc/bind/rndc.key
 
 	# Start crond in the background
 	crond
