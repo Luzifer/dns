@@ -5,7 +5,11 @@ set -euxo pipefail
 apk --no-cache add curl
 
 # Install dependencies
-apk --no-cache add python3 bind-tools bind
+apk --no-cache add \
+	bind \
+	bind-tools \
+	py3-pip \
+	python3
 
 # Get latest versions of tools using latestver
 DUMB_INIT_VERSION=$(curl -sSfL 'https://lv.luzifer.io/catalog-api/dumb-init/latest.txt?p=version')
