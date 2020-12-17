@@ -2,7 +2,7 @@
 set -euxo pipefail
 
 # Install build utilities
-apk --no-cache add curl
+apk --no-cache add curl jq
 
 # Install dependencies
 apk --no-cache add \
@@ -11,13 +11,16 @@ apk --no-cache add \
 	py3-pip \
 	python3
 
-# Get latest versions of tools using latestver
-DUMB_INIT_VERSION=$(curl -sSfL 'https://lv.luzifer.io/catalog-api/dumb-init/latest.txt?p=version')
-
-[ -z "${DUMB_INIT_VERSION}" ] && { exit 1; }
+# Get latest versions of tools using Github API
+ASSET_URL=$(
+	curl -s "https://api.github.com/repos/Yelp/dumb-init/releases/latest" |
+		jq -r '.assets[] | .browser_download_url' |
+		grep "$(uname -m)$"
+)
+[[ -n $ASSET_URL ]] || exit 1
 
 # Install tools
-curl -sSfLo /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v${DUMB_INIT_VERSION}/dumb-init_${DUMB_INIT_VERSION}_x86_64
+curl -sSfLo /usr/local/bin/dumb-init "${ASSET_URL}"
 chmod +x /usr/local/bin/dumb-init
 
 # Install requirements for python3 scripts
@@ -32,4 +35,4 @@ ln -s /src/zonefile_cron /etc/periodic/1min/zonefile_cron
 ln -sf /src/zones/named.conf /etc/bind/named.conf
 
 # Cleanup
-apk --no-cache del curl
+apk --no-cache del curl jq
